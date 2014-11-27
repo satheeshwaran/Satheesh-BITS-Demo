@@ -1,0 +1,110 @@
+.thumbnail .appIcon
+{
+	width: 30%;
+}
+
+#appsGridView .col-sm-6
+{
+	position: inherit;
+}
+
+.navbar-custom
+{
+	z-index: 400;
+}
+.navbar-custom
+{
+	background-color: #005387;
+	border-color: #005387;
+	top: 0;
+	position: relative;
+	width: 100%;
+}
+
+.apps-title
+{
+	width: 360px;
+	text-align: center;
+	margin: 0 auto;
+	white-space: nowrap;
+
+}
+
+#appsGridView h3 
+{
+	font-style: normal;
+}
+
+.createNewApp
+{
+	position: relative;
+	width: 180px;
+	float: right;
+	top: -25px;
+	height: 30px;
+}
+
+.appDetailsPanel .panel-heading
+{
+	background-color: #e6e9ed;
+	border-color: #e6e9ed;
+}
+
+.editApp
+{
+	position: relative;
+	width: 120px;
+	float: right;
+	top: -25px;
+	height: 30px;
+}
+
+.basicDetailsContainer p
+{
+	margin-left: 20px;
+}
+
+#appBasicDetailsList,#basicDetails
+{
+	float: left;
+}
+
+#basicDetails
+{
+	width: 90%;
+	text-align: left;
+}
+
+#appBasicDetailsList li
+{
+	height: 40px;
+}
+
+#appBasicDetailsList
+{
+float: left;
+text-align: left;
+width: auto;
+height: 500px;
+}
+
+
+.beaconAnalytics ul{
+  width:auto;
+  margin-bottom:20px;
+  overflow:hidden;
+  border:1px solid #ccc;
+  border-radius: 6p
+}
+.beaconAnalytics li{
+  line-height:1.5em;
+  border-bottom:1px solid #ccc;
+  float:left;
+  display:inline;
+  height: 100px;
+}
+
+#double li  { width:50%;} 
+#triple li  { width:33.333%; } 
+#quad li    { width:25%; } 
+#six li     { width:8.3333%; } 
