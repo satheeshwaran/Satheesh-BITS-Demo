@@ -18,6 +18,7 @@ sec_session_start();
     <link rel="bookmark" href="favicon_16.ico"/>
     <!-- site css -->
     <link rel="stylesheet" href="css/site.min.css">
+        <link rel="stylesheet" href="css/customchanges.css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -59,7 +60,7 @@ sec_session_start();
       <!--index-->
       <div class="index">
         <h2><div><p class="download-link" style="font-size: x-large;
-">ContextKit is a next gen iBeacon suite that reduces cost,time and effort in setting up infrastrcuture for iBeacon-enabling one's apps, ContextKit comes with a Scalable Server Setup, Admin Console and a Mobile SDK</p></h2>
+">Contextivity is a next gen iBeacon suite that reduces cost,time and effort in setting up infrastrcuture for iBeacon-enabling one's apps, ContextKit comes with a Scalable Server Setup, Admin Console and a Mobile SDK</p></h2>
  <h3><div><p class="download-link"  >  Currently supports iOS & PhoneGap. More platforms coming soon!</p></h3>
 <a href="home.php"><img src="img/slider6.png"></a>
         <p class="download-link">

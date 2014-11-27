@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D9DE0104-BE9F-4345-AEB8-A81CD8259767</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FitNFineDesktop</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6BB1FADE-478D-4153-B623-F601C6FF8D9B</key>
+		<string>https://github.com/satheeshwaran/Satheesh-BITS-Demo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FitNFineDesktop/FitNFineDesktop.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6BB1FADE-478D-4153-B623-F601C6FF8D9B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/satheeshwaran/Satheesh-BITS-Demo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6BB1FADE-478D-4153-B623-F601C6FF8D9B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6BB1FADE-478D-4153-B623-F601C6FF8D9B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Satheesh-BITS-Demo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

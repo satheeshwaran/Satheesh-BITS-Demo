@@ -27,6 +27,25 @@ function sec_session_start() {
     } // regenerated the session, delete the old one. 
 }
 
+function getBeaconDetailsForBeaconID($beacon_uuid,$mysqli)
+{
+
+   if ($stmt = $mysqli->prepare("SELECT beacon_name, beacon_manufacturer,beacon_location,beacon_major_value,beacon_minor_value,beacon_broadcast_message FROM registered_beacons
+                          WHERE beacon_uuid = ?")) {
+                        $stmt->bind_param('s', $beacon_uuid);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($beacon_name,$beacon_manufacturer,$beacon_location,$beacon_major_value,$beacon_minor_value,$beacon_broadcast_message);
+                        while ($stmt->fetch()) {
+                        $arr = array("beacon_name" => $beacon_name,"beacon_manufacturer" => $beacon_manufacturer,"beacon_location" => $beacon_location,"beacon_major_value" => $beacon_major_value,"beacon_minor_value" => $beacon_minor_value,"beacon_broadcast_message" => $beacon_broadcast_message);
+                        return $arr;
+                        }
+                        }    
+
+
+}
+
 function login($email, $password, $mysqli) {
 
     // Using prepared statements means that SQL injection is not possible. 
@@ -44,8 +63,7 @@ function login($email, $password, $mysqli) {
  
         // hash the password with the unique salt.
         //$password = hash('sha512', $password . $salt);
-            echo "<script type='text/javascript'> alert('logged ion');
-            </script>";
+
         if ($stmt->num_rows == 1) {
 
             // If the user exists we check if the account is locked

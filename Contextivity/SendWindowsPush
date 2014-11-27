@@ -1,8 +1,0 @@
-<?php
-//sending push notification using PHP
-
-$uri="http://db3.notify.live.net/throttledthirdparty/01.00/123456789123456798"; //uri sended by Microsoft plateform
-$notif=new WindowsPhonePushNotification($uri);
-$notif->push_toast("this is a title","this is the sub title");
-
-?>

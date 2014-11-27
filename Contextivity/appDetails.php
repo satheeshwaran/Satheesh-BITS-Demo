@@ -1,6 +1,7 @@
 <?php
 include_once 'includes/db_connect.php';
-include_once 'includes/functions.php';
+require 'includes/functions.php';
+
 sec_session_start(); 
 
 $appID = strval($_POST["appID"]);
@@ -37,13 +38,13 @@ if(isset($user_id))
   <html>
   <head>
     <meta charset="utf-8">
-    <title>PushKit</title>
+    <title>Contextivity</title>
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- SmartAddon.com Verification -->
     <meta name="smartaddon-verification" content="936e8d43184bc47ef34e25e426c508fe" />
-    <meta name="keywords" content="PushKit is a Jambul component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
-    <meta name="description" content="PushKit is a Jambul component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
+    <meta name="keywords" content="Contextivity is a Jambul component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
+    <meta name="description" content="Contextivity is a Jambul component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
     <link rel="shortcut icon" href="favicon_16.ico"/>
     <link rel="bookmark" href="favicon_16.ico"/>
     <!-- site css -->
@@ -91,7 +92,7 @@ if(isset($user_id))
           <div class="panel appDetailsPanel" id="appDetailsPanel">
             <div class="panel-heading">
               <div class="apps-title"><?php echo $app_name;?></div>
-              <button type="button" class="btn btn-success btn-block editApp" data-toggle="modal" data-target="#beaconDetailsModal">
+              <button type="button" class="btn btn-success btn-block editApp" data-toggle="modal" data-target="#">
                 <img class="" src="img/add.png" style="position: relative;left: 0px;float: left;top: 5px;">Edit App</button>
               </div>
             </div>
@@ -115,66 +116,102 @@ if(isset($user_id))
                     </ul>
                   </div>
                   <div class="tab-pane fade" id="registeredBeaconsPanelContent">
-                       <div class="row">
-                              <div class="col-sm-6 col-md-3" style="width:20%">
-                                <div class="thumbnail">
-                                  <img class="img-rounded appIcon" src="img/beacon-details-logo.png">
-                                 <div class="caption text-center">
-                                  <h3>Pharmacy Floor1</h3>
-                                  <p>UUID 47895793402ffety3058034tgeg</p>
-                                  <p>Minor 25</p>
-                                  <p>Major 234</p>
-                                  <p><input type="hidden" name="appID" value="232443b7"><button class="btn btn-danger" >UnRegister</button> <button class="btn btn-default beaconDetailsButton"  id="232443b7">Details</button></p>
-                                 </div>
-                              </div>
-                              </div>
-                              <div class="col-sm-6 col-md-3" style="width:20%">
-                                <div class="thumbnail">
-                                  <img class="img-rounded appIcon" src="img/beacon-details-logo.png">
-                                 <div class="caption text-center">
-                                  <h3>Guest Room Floor1</h3>
-                                  <p>UUID 245gfdg5eyh5756757fdsf242</p>
-                                  <p>Minor 25</p>
-                                  <p>Major 234</p>
-                                  <p><input type="hidden" name="appID" value="232443b7"><button class="btn btn-danger" >UnRegister</button> <button class="btn btn-default beaconDetailsButton" id="232443b7">Details</button></p>
-                                 </div>
-                              </div>
-                              </div>
-                       </div>
+                      <div class="row">
+                        <?php
+                        $appID = strval($_POST["appID"]);
+
+                        if ($stmt = $mysqli->prepare("SELECT * FROM registered_beacons
+                          WHERE beacon_app_id = ?")) {
+                        $stmt->bind_param('s', $appID);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($beacon_app_id, $beacon_uuid, $beacon_name, $beacon_manufacturer,$beacon_location,$beacon_major_value,$beacon_minor_value,$beacon_broadcast_message,$beacon_exit_message,$beacon_broadcast_action);
+                        while ($stmt->fetch()) {
+                             echo '<form class="appFragmentForm" id="'.$beacon_uuid.'" action="beaconDetails.php" method="POST">
+                                   <div class="col-sm-6 col-md-3" style="width:20%">
+                                   <div class="thumbnail">
+                                   <img class="img-rounded appIcon" src="img/beacon-details-logo.png">
+                                   <div class="caption text-center">
+                                   <h3>'.$beacon_name .'</h3>
+                                   <p>UUID '.$beacon_uuid .'</p>
+                                   <p>Minor '.$beacon_minor_value.'</p>
+                                   <p>Major '.$beacon_major_value.'</p>
+                                   <p><input type="hidden" name="beacon_uuid" value="'.$beacon_uuid.'"><button class="btn btn-danger" >UnRegister</button> <button class="btn btn-default beaconDetailsButton"  id="'.$beacon_uuid.'">Details</button></p>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </form>';
+                        }
+                        }
+                          ?>
+                          <form class="appFragmentForm" id="addNewRegBeaconButton" action="beaconDetails.php" method="POST">
+                                   <?php echo '<input type="hidden" name="existing_beacon_app_id" value="'.$appID.'">';?>
+                                   <div class="col-sm-6 col-md-3" style="width:20%">
+                                   <div class="thumbnail">
+                                   <img class="img-rounded appIcon" src="img/beacon-details-logo.png">
+                                   <div class="caption text-center">
+                                   <h3><br/></h3>
+                                   <p><br/></p>
+                                   <p><br/></p>
+                                   <p><br/></p>
+                                   <p><input type="submit" class="btn btn-success beaconDetailsButton" id="addNewRegBeaconButton'" value="Add New Beacon"></input></p>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </form>
+                      </div>
                      </div>
                   <div class="tab-pane fade" id="rogueBeaconsPanelContent">
-                     <div class="row">
-                              <div class="col-sm-6 col-md-3" style="width:20%">
-                                <div class="thumbnail">
-                                  <img class="img-rounded appIcon" src="img/beacon-details-logo.png">
-                                 <div class="caption text-center">
-                                  <h3>Rogue Beacon-Tony Stark</h3>
-                                  <p>UUID 47895793402ffety3058034tgeg</p>
-                                  <p>Minor 25</p>
-                                  <p>Major 234</p>
-                                  <p><input type="hidden" name="appID" value="232443b7"><button class="btn btn-danger" data-toggle="modal" data-target="#beaconDetailsModal">UnRegister</button> <button class="btn btn-default appDetailsButton" id="232443b7">Details</button></p>
-                                 </div>
-                              </div>
-                              </div>
-                           </form>
-                            <form class="appFragmentForm" id="232443b7" action="appDetails.php" method="POST">
-                              <div class="col-sm-6 col-md-3" style="width:20%">
-                                <div class="thumbnail">
-                                  <img class="img-rounded appIcon" src="img/beacon-details-logo.png">
-                                 <div class="caption text-center">
-                                  <h3>Rogue Beacon-Pepper Potts</h3>
-                                  <p>UUID 245gfdg5eyh5756757fdsf242</p>
-                                  <p>Minor 25</p>
-                                  <p>Major 234</p>
-                                  <p><input type="hidden" name="appID" value="232443b7"><button class="btn btn-danger" data-toggle="modal" data-target="#beaconDetailsModal">UnRegister</button> <button class="btn btn-default appDetailsButton" id="232443b7">Details</button></p>
-                                 </div>
-                              </div>
-                              </div>
-                       </div>                  
+                      <div class="row">
+                         <?php
+                        $appID = strval($_POST["appID"]);
+
+                        if ($stmt = $mysqli->prepare("SELECT * FROM rogue_beacons
+                          WHERE beacon_app_id = ?")) {
+                        $stmt->bind_param('s', $appID);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($beacon_app_id, $beacon_uuid, $beacon_name, $beacon_manufacturer,$beacon_location,$beacon_major_value,$beacon_minor_value,$beacon_broadcast_message,$beacon_exit_message,$beacon_broadcast_action);
+                        while ($stmt->fetch()) {
+                             echo '<form class="appFragmentForm" id="'.$beacon_uuid.'" action="rogueBeaconDetails.php" method="POST">
+                                   <div class="col-sm-6 col-md-3" style="width:20%">
+                                   <div class="thumbnail">
+                                   <img class="img-rounded appIcon" src="img/beacon-details-logo.png">
+                                   <div class="caption text-center">
+                                   <h3>'.$beacon_name .'</h3>
+                                   <p>UUID '.$beacon_uuid .'</p>
+                                   <p>Minor '.$beacon_minor_value.'</p>
+                                   <p>Major '.$beacon_major_value.'</p>
+                                   <p><input type="hidden" name="beacon_uuid" value="'.$beacon_uuid.'"><button class="btn btn-danger" >UnRegister</button> <button class="btn btn-default beaconDetailsButton"  id="'.$beacon_uuid.'">Details</button></p>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </form>';
+                        }
+                        }
+                          ?>
+                          <form class="appFragmentForm" id="addNewRogueBeaconButton" action="rogueBeaconDetails.php" method="POST">
+                                   <?php echo '<input type="hidden" name="existing_beacon_app_id" value="'.$appID.'">';?>
+                                   <div class="col-sm-6 col-md-3" style="width:20%">
+                                   <div class="thumbnail">
+                                   <img class="img-rounded appIcon" src="img/beacon-details-logo.png">
+                                   <div class="caption text-center">
+                                   <h3><br/></h3>
+                                   <p><br/></p>
+                                   <p><br/></p>
+                                   <p><br/></p>
+                                   <p><input type="submit" class="btn btn-success beaconDetailsButton" id="addNewRogueBeaconButton'" value="Add New Beacon"></input></p>
+                                   </div>
+                                   </div>
+                                   </div>
+                                   </form>
+                      </div>
                      </div>
                   <div class="tab-pane fade beaconAnalytics" id="appAnalyticsPanelContent">
             <table class="table table-bordered table-striped responsive-utilities" style="width: auto;">
-            <thead>
+               <thead>
               <tr>
                 <th>Beacon Name</th>
                 <th>Manufacturer</th>
@@ -191,64 +228,38 @@ if(isset($user_id))
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Pharmacy Floor1</td>
-                <td>Estimote</td>
-                <td>47895793402ffety3058034tgeg</td>
-                <td>25</td>
-                <td>234</td>
-                <td>Pharmacy 1st Floor</td>
-                <td>Welcome To Appollo Hospitals, Slide to check in</td>
-                <td>309222</td>
-                <td>Satheeshwaran</td>
-                <td>11/11/2014 16:48:32</td>
-                <td>11/11/2014 16:49:52</td>
-                <td>01:50</td>
-              </tr>
-              <tr>
-                <td>Pharmacy Floor1</td>
-                <td>Estimote</td>
-                <td>47895793402ffety3058034tgeg</td>
-                <td>25</td>
-                <td>234</td>
-                <td>Pharmacy 1st Floor</td>
-                <td>Welcome To Appollo Hospitals, Slide to check in</td>
-                <td>309222</td>
-                <td>Satheeshwaran</td>
-                <td>11/11/2014 16:48:32</td>
-                <td>11/11/2014 16:49:52</td>
-                <td>01:50</td>
+              <?php 
 
-              </tr>
-              <tr>
-                <td>Pharmacy Floor1</td>
-                <td>Estimote</td>
-                <td>47895793402ffety3058034tgeg</td>
-                <td>25</td>
-                <td>234</td>
-                <td>Pharmacy 1st Floor</td>
-                <td>Welcome To Appollo Hospitals, Slide to check in</td>
-                <td>309222</td>
-                <td>Satheeshwaran</td>
-                <td>11/11/2014 16:48:32</td>
-                <td>11/11/2014 16:49:52</td>
-                <td>01:50</td>
+                        $appID = strval($_POST["appID"]);
+                        if ($stmt = $mysqli->prepare("SELECT * FROM beacon_analytics
+                          WHERE analytics_app_id = ?")) {
 
-              </tr>
-              <tr>
-                <td>Pharmacy Floor1</td>
-                <td>Estimote</td>
-                <td>47895793402ffety3058034tgeg</td>
-                <td>25</td>
-                <td>234</td>
-                <td>Pharmacy 1st Floor</td>
-                <td>Welcome To Appollo Hospitals, Slide to check in</td>
-                <td>309222</td>
-                <td>Satheeshwaran</td>
-                <td>11/11/2014 16:48:32</td>
-                <td>11/11/2014 16:49:52</td>
-                <td>01:50</td>
-              </tr>
+                        $stmt->bind_param('s', $appID);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($analytics_app_id,$analytics_beacon_uuid,$analytics_user_id,$analytics_user_name,$session_start,$session_end,$session_time);
+                        while ($stmt->fetch()) {
+
+                              $beacon_data = getBeaconDetailsForBeaconID($analytics_beacon_uuid,$mysqli);
+                              echo '<script language="javascript">console.log(123)</script>';   
+                                echo ' <tr>
+                                <td>'.$beacon_data["beacon_name"].'</td>
+                                <td>'.$beacon_data["beacon_manufacturer"].'</td>
+                                <td>'.$analytics_beacon_uuid.'</td>
+                                <td>'.$beacon_data["beacon_location"].'</td>
+                                <td>'.$beacon_data["beacon_major_value"].'</td>
+                                <td>'.$beacon_data["beacon_minor_value"].'</td>
+                                <td>'.$beacon_data["beacon_broadcast_message"].'</td>
+                                <td>'.$analytics_user_id.'</td>
+                                <td>'.$analytics_user_name.'</td>
+                                <td>'.$session_start.'</td>
+                                <td>'.$session_end.'</td>
+                                <td>'.$session_time.'</td>
+                                </tr>';                       
+                        }
+                        }
+              ?>
             </tbody>
           </table>
                  </div>
@@ -322,13 +333,13 @@ if(isset($user_id))
       <div class="container">
         <div class="download">
           <span class="download__infos">You simply have to <b>try it</b>.</span>&nbsp;&nbsp;&nbsp;&nbsp;
-          <a class="btn btn-primary" href="https://github.com/bootflat/bootflat.github.io/archive/master.zip">Download PushKit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="btn btn-primary" href="https://github.com/bootflat/bootflat.github.io/archive/master.zip">Download Contextivity</a>&nbsp;&nbsp;&nbsp;&nbsp;
           <a class="btn" href="documentation.html">Read the Documentation</a>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <hr class="dashed" />
         <div class="copyright Jambul">
-          <p><b>PushKit</b>&nbsp;&nbsp;&nbsp;&nbsp;</p>
-          <p>&copy; 2014 <a href="http://www.flathemes.com" target="_blank">Jambul</a>, Inc. All rights reserved.</p>
+          <p><b>Contextivity</b>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <p>&copy; 2014 <a href="http://www.flathemes.com" target="_blank">Satheeshwaran</a>, Inc. All rights reserved.</p>
         </div>
       </div>
     </div>
@@ -336,11 +347,20 @@ if(isset($user_id))
   </div>
 <script>
 
-$( ".beaconDetailsButton" ).click(function() {
-     $('#beaconDetailsModal').modal('show');
-});
+$(".beaconDetailsButton").click(function (event) { 
+        event.preventDefault();
+        document.getElementById(this.id).submit();
+  });
 
+$("#addNewRegBeaconButton").click(function (event) { 
+        event.preventDefault();
+        document.getElementById(this.id).submit();
+  });
 
+$("#addNewRogueBeaconButton").click(function (event) { 
+        event.preventDefault();
+        document.getElementById(this.id).submit();
+  });
 </script>
 </body>
 </html>

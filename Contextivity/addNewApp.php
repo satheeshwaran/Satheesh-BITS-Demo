@@ -26,7 +26,7 @@ $created_at = $now;
 		}
 		else
 		{
-			echo '<script language="javascript">alert("Sorry App Creation Failed, Please Try Again!")</script>';   
+			echo '<script language="javascript">alert("Sorry Beacon Creation Failed, Please Try Again!")</script>';   
 			header("Location: myapps.php");
 		}
   	}

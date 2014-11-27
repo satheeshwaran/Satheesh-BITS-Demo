@@ -104,6 +104,11 @@ height: 500px;
   height: 100px;
 }
 
+.container
+{
+	width: 100% !important;
+}
+
 #double li  { width:50%;} 
 #triple li  { width:33.333%; } 
 #quad li    { width:25%; } 
