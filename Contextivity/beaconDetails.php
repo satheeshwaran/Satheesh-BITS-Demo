@@ -127,7 +127,7 @@ $beacon_existing_app_id = strval($_POST["existing_beacon_app_id"]);
                     <span class="glyphicon glyphicon-ok form-control-feedback"></span>
           </div>
           <div class="form-group has-success has-feedback">
-                    <label  for="inputSuccess2">Beacon Broadcast Action</label>
+                    <label  for="inputSuccess2">Beacon Exit Message</label>
                     <input type="text" class="form-control" id="beaconExitMessageField" name="beaconExitMessageField" value="'.$beacon_exit_message.'">
                     <span class="glyphicon glyphicon-ok form-control-feedback"></span>
           </div>
@@ -180,7 +180,7 @@ $beacon_existing_app_id = strval($_POST["existing_beacon_app_id"]);
                     <span class="glyphicon glyphicon-ok form-control-feedback"></span>
           </div>
           <div class="form-group has-success has-feedback">
-                    <label  for="inputSuccess2">Beacon Broadcast Action</label>
+                    <label  for="inputSuccess2">Beacon Exit Message</label>
                     <input type="text" class="form-control" id="beaconExitMessageField" name="beaconExitMessageField" value="">
                     <span class="glyphicon glyphicon-ok form-control-feedback"></span>
           </div>

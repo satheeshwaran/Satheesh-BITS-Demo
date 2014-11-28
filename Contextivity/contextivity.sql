@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `applications`
 --
 
+USE contextivity;
+
 CREATE TABLE `applications` (
   `app_id` varchar(8) NOT NULL,
   `platform_id` varchar(32) NOT NULL,

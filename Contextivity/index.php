@@ -116,7 +116,7 @@ if(strlen($app_id)>0)
     $stmt->bind_result($beacon_app_id, $beacon_uuid, $beacon_name, $beacon_manufacturer,$beacon_location,$beacon_major_value,$beacon_minor_value,$beacon_broadcast_message,$beacon_exit_message,$beacon_broadcast_action);
     while ($stmt->fetch())
     {
-       array_push($beacons_array,array("beacon_app_id" => $beacon_app_id,"beacon_uuid" => $beacon_uuid,"beacon_name" => $beacon_name,"beacon_manufacturer" => $beacon_manufacturer,"beacon_location" => $beacon_location,"beacon_major_value" => $beacon_major_value,"beacon_minor_value" => $beacon_minor_value,"beacon_broadcast_message" => $beacon_broadcast_message));
+       array_push($beacons_array,array("beacon_broadcast_action" => $beacon_broadcast_action,"beacon_exit_message" => $beacon_exit_message,"beacon_app_id" => $beacon_app_id,"beacon_uuid" => $beacon_uuid,"beacon_name" => $beacon_name,"beacon_manufacturer" => $beacon_manufacturer,"beacon_location" => $beacon_location,"beacon_major_value" => $beacon_major_value,"beacon_minor_value" => $beacon_minor_value,"beacon_broadcast_message" => $beacon_broadcast_message));
     }
     header('Content-Type: application/json');
 
@@ -153,7 +153,7 @@ if(strlen($app_id)>0)
     $stmt->bind_result($beacon_app_id, $beacon_uuid, $beacon_name, $beacon_manufacturer,$beacon_location,$beacon_major_value,$beacon_minor_value,$beacon_broadcast_message,$beacon_exit_message,$beacon_broadcast_action);
     while ($stmt->fetch())
     {
-       array_push($beacons_array,array("beacon_app_id" => $beacon_app_id,"beacon_uuid" => $beacon_uuid,"beacon_name" => $beacon_name,"beacon_manufacturer" => $beacon_manufacturer,"beacon_location" => $beacon_location,"beacon_major_value" => $beacon_major_value,"beacon_minor_value" => $beacon_minor_value,"beacon_broadcast_message" => $beacon_broadcast_message));
+       array_push($beacons_array,array("beacon_broadcast_action" => $beacon_broadcast_action,"beacon_exit_message" => $beacon_exit_message,"beacon_app_id" => $beacon_app_id,"beacon_uuid" => $beacon_uuid,"beacon_name" => $beacon_name,"beacon_manufacturer" => $beacon_manufacturer,"beacon_location" => $beacon_location,"beacon_major_value" => $beacon_major_value,"beacon_minor_value" => $beacon_minor_value,"beacon_broadcast_message" => $beacon_broadcast_message));
     }
     header('Content-Type: application/json');
 
@@ -195,7 +195,6 @@ if(strlen($app_id)>0)
 
       else
       {
-        echo'test';
         $beacon_uuid =$data['beacon_uuid'];
         $user_id = $data['user_id'];
         $user_name = $data['user_name'];

@@ -91,7 +91,7 @@ if(isset($user_id))
         <div class="index">
           <div class="panel appDetailsPanel" id="appDetailsPanel">
             <div class="panel-heading">
-              <div class="apps-title"><?php echo $app_name;?></div>
+              <div class="apps-title"><strong><?php echo $app_name;?></strong></div>
               <button type="button" class="btn btn-success btn-block editApp" data-toggle="modal" data-target="#">
                 <img class="" src="img/add.png" style="position: relative;left: 0px;float: left;top: 5px;">Edit App</button>
               </div>
@@ -238,7 +238,7 @@ if(isset($user_id))
                         $stmt->execute();    // Execute the prepared query.
                         $stmt->store_result();
                         // get variables from result.
-                        $stmt->bind_result($analytics_app_id,$analytics_beacon_uuid,$analytics_user_id,$analytics_user_name,$session_start,$session_end,$session_time);
+                        $stmt->bind_result($analytics_app_id,$analytics_beacon_uuid,$analytics_user_id,$analytics_user_name,$session_start,$session_end,$session_time,$created_at);
                         while ($stmt->fetch()) {
 
                               $beacon_data = getBeaconDetailsForBeaconID($analytics_beacon_uuid,$mysqli);
@@ -255,7 +255,7 @@ if(isset($user_id))
                                 <td>'.$analytics_user_name.'</td>
                                 <td>'.$session_start.'</td>
                                 <td>'.$session_end.'</td>
-                                <td>'.$session_time.'</td>
+                                <td>'.date('H:i', mktime(0,$session_time)).'</td>
                                 </tr>';                       
                         }
                         }

@@ -12,7 +12,7 @@ class CustomView extends \Slim\View
       $logged = 'out';
     }
 
-    '<html>
+     '<html>
     <head>
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -45,5 +45,5 @@ class CustomView extends \Slim\View
     </h2>
     </section>
     </body>
-    </html>
+    </html>'
 
