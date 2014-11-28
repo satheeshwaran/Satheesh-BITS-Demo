@@ -51,7 +51,7 @@
             
             NSError *jsonReadingError;
             NSDictionary *beaconResults = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&jsonReadingError];
-            if([[beaconResults objectForKey:@"status"] isEqualToString:@"success"])
+            if([[beaconResults objectForKey:@"status"] isEqualToString:@"Success"])
             {
                 analyticsObejct.sync_flag = 0;
                 [[CXTYCoreDataHelper sharedHelper]saveContextToPersistentStore];
