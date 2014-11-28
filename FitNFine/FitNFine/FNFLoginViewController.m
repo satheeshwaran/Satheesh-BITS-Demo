@@ -26,6 +26,8 @@
     self.username.text= @"rachel";
     self.password.text = @"pass";
     
+    [[NSUserDefaults standardUserDefaults]setObject:@"rachel" forKey:@"user_name"];
+    [[NSUserDefaults standardUserDefaults]setObject:@"da24tg23" forKey:@"user_id"];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -65,7 +67,11 @@
         [self.loadingIndicator startAnimating];
 
         [PFUser logInWithUsernameInBackground:user password:pass block:^(PFUser *user, NSError *error) {
-
+            
+            [[NSUserDefaults standardUserDefaults]setObject:user.username forKey:@"user_name"];
+            [[NSUserDefaults standardUserDefaults]setObject:user.objectId forKey:@"user_id"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             [self.loadingIndicator stopAnimating];
 
             if(!error && user.isAuthenticated)

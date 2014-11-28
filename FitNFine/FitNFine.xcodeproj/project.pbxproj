@@ -50,6 +50,15 @@
 		A50777E819A4E3FB00C44619 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50777E719A4E3FB00C44619 /* AVFoundation.framework */; };
 		A50777EA19A4E40B00C44619 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50777E919A4E40B00C44619 /* CoreMedia.framework */; };
 		A50777EC19A4E41600C44619 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A50777EB19A4E41600C44619 /* libiconv.dylib */; };
+		A50B6B861A284A5A009C2776 /* CXTYBeaconHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B851A284A5A009C2776 /* CXTYBeaconHelper.m */; };
+		A50B6B8A1A284B5F009C2776 /* CXTYDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B881A284B5F009C2776 /* CXTYDataModel.xcdatamodeld */; };
+		A50B6B8D1A284F42009C2776 /* CXTYCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B8C1A284F42009C2776 /* CXTYCoreDataHelper.m */; };
+		A50B6B8F1A284F7C009C2776 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50B6B8E1A284F7C009C2776 /* CoreData.framework */; };
+		A50B6B921A285018009C2776 /* CXTYClientSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B911A285018009C2776 /* CXTYClientSDK.m */; };
+		A50B6B971A28707E009C2776 /* CXTYBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B961A28707E009C2776 /* CXTYBeacon.m */; };
+		A50B6B9D1A2875F7009C2776 /* CXTYRogueBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B9C1A2875F7009C2776 /* CXTYRogueBeacon.m */; };
+		A50B6BA01A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B9F1A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.m */; };
+		A50B6BA91A28B29D009C2776 /* CXTYBeaconAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6BA81A28B29D009C2776 /* CXTYBeaconAnalytics.m */; };
 		A50FC18E19A6136100BB41EF /* JAMBULNotificationsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A50FC18C19A6136100BB41EF /* JAMBULNotificationsHelper.m */; };
 		A50FC18F19A6136100BB41EF /* LocalNotifications Helper.docx in Resources */ = {isa = PBXBuildFile; fileRef = A50FC18D19A6136100BB41EF /* LocalNotifications Helper.docx */; };
 		A50FC19A19A626A400BB41EF /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A50FC19919A626A400BB41EF /* libEstimoteSDK.a */; };
@@ -185,6 +194,23 @@
 		A50777E719A4E3FB00C44619 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A50777E919A4E40B00C44619 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A50777EB19A4E41600C44619 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		A50B6B841A284A5A009C2776 /* CXTYBeaconHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYBeaconHelper.h; sourceTree = "<group>"; };
+		A50B6B851A284A5A009C2776 /* CXTYBeaconHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYBeaconHelper.m; sourceTree = "<group>"; };
+		A50B6B891A284B5F009C2776 /* CXTYDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CXTYDataModel.xcdatamodel; sourceTree = "<group>"; };
+		A50B6B8B1A284F42009C2776 /* CXTYCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYCoreDataHelper.h; sourceTree = "<group>"; };
+		A50B6B8C1A284F42009C2776 /* CXTYCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYCoreDataHelper.m; sourceTree = "<group>"; };
+		A50B6B8E1A284F7C009C2776 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A50B6B901A285018009C2776 /* CXTYClientSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYClientSDK.h; sourceTree = "<group>"; };
+		A50B6B911A285018009C2776 /* CXTYClientSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYClientSDK.m; sourceTree = "<group>"; };
+		A50B6B941A285662009C2776 /* CXTYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYConstants.h; sourceTree = "<group>"; };
+		A50B6B951A28707E009C2776 /* CXTYBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYBeacon.h; sourceTree = "<group>"; };
+		A50B6B961A28707E009C2776 /* CXTYBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYBeacon.m; sourceTree = "<group>"; };
+		A50B6B9B1A2875F7009C2776 /* CXTYRogueBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYRogueBeacon.h; sourceTree = "<group>"; };
+		A50B6B9C1A2875F7009C2776 /* CXTYRogueBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYRogueBeacon.m; sourceTree = "<group>"; };
+		A50B6B9E1A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYBeaconAnalyticsHelper.h; sourceTree = "<group>"; };
+		A50B6B9F1A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYBeaconAnalyticsHelper.m; sourceTree = "<group>"; };
+		A50B6BA71A28B29D009C2776 /* CXTYBeaconAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYBeaconAnalytics.h; sourceTree = "<group>"; };
+		A50B6BA81A28B29D009C2776 /* CXTYBeaconAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYBeaconAnalytics.m; sourceTree = "<group>"; };
 		A50FC18B19A6136100BB41EF /* JAMBULNotificationsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAMBULNotificationsHelper.h; sourceTree = "<group>"; };
 		A50FC18C19A6136100BB41EF /* JAMBULNotificationsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAMBULNotificationsHelper.m; sourceTree = "<group>"; };
 		A50FC18D19A6136100BB41EF /* LocalNotifications Helper.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LocalNotifications Helper.docx"; sourceTree = "<group>"; };
@@ -261,6 +287,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50B6B8F1A284F7C009C2776 /* CoreData.framework in Frameworks */,
 				A5F8AF7C19AA0C4200792F8F /* MessageUI.framework in Frameworks */,
 				286996C419A9AF8D00314356 /* Social.framework in Frameworks */,
 				286996C219A9AF8300314356 /* Accounts.framework in Frameworks */,
@@ -417,6 +444,29 @@
 			path = ZBar;
 			sourceTree = "<group>";
 		};
+		A50B6B831A284A1A009C2776 /* ContextivitySDK */ = {
+			isa = PBXGroup;
+			children = (
+				A50B6B941A285662009C2776 /* CXTYConstants.h */,
+				A50B6B9E1A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.h */,
+				A50B6B9F1A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.m */,
+				A50B6B841A284A5A009C2776 /* CXTYBeaconHelper.h */,
+				A50B6B851A284A5A009C2776 /* CXTYBeaconHelper.m */,
+				A50B6B8B1A284F42009C2776 /* CXTYCoreDataHelper.h */,
+				A50B6B8C1A284F42009C2776 /* CXTYCoreDataHelper.m */,
+				A50B6B901A285018009C2776 /* CXTYClientSDK.h */,
+				A50B6B911A285018009C2776 /* CXTYClientSDK.m */,
+				A50B6B881A284B5F009C2776 /* CXTYDataModel.xcdatamodeld */,
+				A50B6B9B1A2875F7009C2776 /* CXTYRogueBeacon.h */,
+				A50B6B9C1A2875F7009C2776 /* CXTYRogueBeacon.m */,
+				A50B6B951A28707E009C2776 /* CXTYBeacon.h */,
+				A50B6B961A28707E009C2776 /* CXTYBeacon.m */,
+				A50B6BA71A28B29D009C2776 /* CXTYBeaconAnalytics.h */,
+				A50B6BA81A28B29D009C2776 /* CXTYBeaconAnalytics.m */,
+			);
+			name = ContextivitySDK;
+			sourceTree = "<group>";
+		};
 		A50FC18A19A6136100BB41EF /* Local Notification Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +540,7 @@
 		A5ACD50B19A212EF0063B090 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A50B6B8E1A284F7C009C2776 /* CoreData.framework */,
 				A5F8AF7B19AA0C4200792F8F /* MessageUI.framework */,
 				286996C319A9AF8D00314356 /* Social.framework */,
 				286996C119A9AF8300314356 /* Accounts.framework */,
@@ -517,6 +568,7 @@
 		A5ACD51219A212EF0063B090 /* FitNFine */ = {
 			isa = PBXGroup;
 			children = (
+				A50B6B831A284A1A009C2776 /* ContextivitySDK */,
 				A5ACD54419A213380063B090 /* vendor */,
 				A5ACD51B19A212EF0063B090 /* FNFAppDelegate.h */,
 				A5ACD51C19A212EF0063B090 /* FNFAppDelegate.m */,
@@ -743,19 +795,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				286996B719A9A8EE00314356 /* UIViewController+ENPopUp.m in Sources */,
+				A50B6B971A28707E009C2776 /* CXTYBeacon.m in Sources */,
 				286996B419A9A8E400314356 /* UIViewController+XHLoadingNavigationItemTitle.m in Sources */,
 				A5ACD55A19A2163A0063B090 /* FNFRightSidePaneViewController.m in Sources */,
+				A50B6BA91A28B29D009C2776 /* CXTYBeaconAnalytics.m in Sources */,
+				A50B6B861A284A5A009C2776 /* CXTYBeaconHelper.m in Sources */,
 				01B7762219A8935600B12B6D /* ClaimHistoryCell.m in Sources */,
 				A5ACD51919A212EF0063B090 /* main.m in Sources */,
 				A53CE55B19A8C745000E20C9 /* FNFHospitalCheckInViewController.m in Sources */,
 				286996EA19A9B37B00314356 /* JambulBarCodeScanner.m in Sources */,
+				A50B6B8A1A284B5F009C2776 /* CXTYDataModel.xcdatamodeld in Sources */,
 				A534ED7219A749FC0033EB61 /* FNFPolicyDetailsViewController.m in Sources */,
 				A53CE55F19A8D1E3000E20C9 /* PulsingHaloLayer.m in Sources */,
+				A50B6BA01A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.m in Sources */,
 				A5ACD51D19A212EF0063B090 /* FNFAppDelegate.m in Sources */,
 				A5ACD52619A212EF0063B090 /* FNFLoginViewController.m in Sources */,
+				A50B6B9D1A2875F7009C2776 /* CXTYRogueBeacon.m in Sources */,
 				A5ACD55719A2160B0063B090 /* FNFLeftSidePaneViewController.m in Sources */,
 				8E7A3ED519A916CF00D4D615 /* AMBouncingView.m in Sources */,
 				28CD836B19A7999F00D09D1F /* DependentInformationView.m in Sources */,
+				A50B6B921A285018009C2776 /* CXTYClientSDK.m in Sources */,
 				A5ACD55419A215C80063B090 /* FNFLandingViewController.m in Sources */,
 				A5ACD55D19A236010063B090 /* FNFRootViewController.m in Sources */,
 				A534ED7619A74FCE0033EB61 /* DZNSegmentedControl.m in Sources */,
@@ -766,6 +825,7 @@
 				286996C019A9A90C00314356 /* XHLoadingNavigationItemTitleView.m in Sources */,
 				A5ACD54D19A213570063B090 /* RESideMenu.m in Sources */,
 				28CD835F19A791C900D09D1F /* BasicInformationView.m in Sources */,
+				A50B6B8D1A284F42009C2776 /* CXTYCoreDataHelper.m in Sources */,
 				8E7A3ED619A916CF00D4D615 /* AMSmoothAlertView.m in Sources */,
 				A5ACD55119A215800063B090 /* FNFSignUpViewController.m in Sources */,
 				286996BA19A9A8F900314356 /* JWBlurView.m in Sources */,
@@ -1034,6 +1094,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A50B6B881A284B5F009C2776 /* CXTYDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A50B6B891A284B5F009C2776 /* CXTYDataModel.xcdatamodel */,
+			);
+			currentVersion = A50B6B891A284B5F009C2776 /* CXTYDataModel.xcdatamodel */;
+			path = CXTYDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A5ACD50119A212EF0063B090 /* Project object */;
 }

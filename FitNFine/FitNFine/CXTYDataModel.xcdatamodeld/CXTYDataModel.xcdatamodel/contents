@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CXTYBeacon" representedClassName="CXTYBeacon" syncable="YES">
+        <attribute name="beaconAction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconAppID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconExitMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconManufacturer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconMinor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconUUID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconWelcomeMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaonMajor" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CXTYBeaconAnalytics" representedClassName="CXTYBeaconAnalytics" syncable="YES">
+        <attribute name="analytics_app_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beacon_uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="session_duration" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="session_end_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="session_start_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sync_flag" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CXTYRogueBeacon" representedClassName="CXTYRogueBeacon" syncable="YES">
+        <attribute name="beaconAction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconAppID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconExitMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconManufacturer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconMinor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconUUID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconWelcomeMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaonMajor" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CXTYBeacon" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="CXTYBeaconAnalytics" positionX="-54" positionY="63" width="128" height="163"/>
+        <element name="CXTYRogueBeacon" positionX="-36" positionY="99" width="128" height="193"/>
+    </elements>
+</model>

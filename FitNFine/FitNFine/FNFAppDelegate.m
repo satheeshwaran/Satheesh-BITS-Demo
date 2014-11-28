@@ -13,6 +13,12 @@
 #import <Parse/Parse.h>
 #import "FNFInsuranceBackendHelper.h"
 
+#import "CXTYConstants.h"
+#import "CXTYBeacon.h"
+#import "CXTYBeaconHelper.h"
+#import "CXTYBeaconAnalytics.h"
+#import "CXTYCoreDataHelper.h"
+
 #define UUID @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"
 #define MAJOR 57875
 #define MINOR 533
@@ -23,6 +29,7 @@
 @property (nonatomic, strong) ESTBeacon         *beacon;
 @property (nonatomic, strong) ESTBeaconManager  *beaconManager;
 @property (nonatomic, strong) ESTBeaconRegion   *beaconRegion;
+@property (nonatomic, strong) NSMutableDictionary *analyticsObjects;
 
 @end
 
@@ -44,14 +51,39 @@
     [Parse setApplicationId:@"1DSp32FGHGYPTPCxfhPdLL2q8oM1m836LnZ2wUCg"
                   clientKey:@"YXAv6gNR60RNg1Mmv7kER9OHHFv7eusv5nL2MU3n"];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncCompleted) name:@"SyncCompleted" object:nil];
+    self.sdk = [CXTYClientSDK sharedInstanceWithAPIKey:@"oSTfaZegbTB3j2QAnb0nA42LxobMT9l9"];
+    [self.sdk refreshSDKSettings];
+    [self.sdk pushAnalytics];
 
     
-    [self registerForHospitalBeacons];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncCompleted) name:@"SyncCompleted" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SDKRefreshComplete) name:NOTIFICATION_FOR_SDK_REFRESH_SUCCESS object:nil];
+
+    self.analyticsObjects = [NSMutableDictionary dictionary];
+    
+    //self registerForHospitalBeacons];
     
     return YES;
 }
 
+- (void)SDKRefreshComplete
+{
+    self.beaconManager = [[ESTBeaconManager alloc] init];
+    self.beaconManager.delegate = self;
+    
+    NSArray *beaconsToListenTo = [self.sdk getRegisteredBeacons];
+    
+    for (CXTYBeacon *beacon in beaconsToListenTo) {
+        
+        ESTBeaconRegion *bRegion = [[ESTBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:beacon.beaconUUID]
+                                                                     major:[beacon.beaonMajor intValue]
+                                                                     minor:[beacon.beaconMinor intValue]
+                                                                identifier:beacon.beaconName];
+        [self.beaconManager startMonitoringForRegion:bRegion];
+
+    }
+}
 
 - (void)syncCompleted
 {
@@ -75,12 +107,69 @@
 
 - (void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region
 {
-    [JAMBULNotificationsHelper scheduleNotificationNowWithtext:@"Entered Apollo Hospital's - Chennai" action:@" check in with your insurance policy" sound:nil launchImage:nil andInfo:nil];
+    CXTYBeaconHelper *helper = [[CXTYBeaconHelper alloc]init];
+    CXTYBeacon *beacon = [helper getExistingRegBeaconWithUUID:region.proximityUUID.UUIDString];
+    
+    if(beacon)
+    [JAMBULNotificationsHelper scheduleNotificationNowWithtext:beacon.beaconWelcomeMessage action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
+
+    else
+    [JAMBULNotificationsHelper scheduleNotificationNowWithtext:@"Welcome To Apollo Hospitals!!" action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
+    
+    [self startAnalyticsForBeacon:beacon];
 }
 
 - (void)beaconManager:(ESTBeaconManager *)manager didExitRegion:(ESTBeaconRegion *)region
 {
-    [JAMBULNotificationsHelper scheduleNotificationNowWithtext:@"Thanks For Visting Apollo Hospital's- Chennai" action:@"check for your claim status" sound:nil launchImage:nil andInfo:nil];
+    CXTYBeaconHelper *helper = [[CXTYBeaconHelper alloc]init];
+    CXTYBeacon *beacon = [helper getExistingRegBeaconWithUUID:region.proximityUUID.UUIDString];
+    
+    if(beacon)
+        [JAMBULNotificationsHelper scheduleNotificationNowWithtext:beacon.beaconExitMessage action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
+    
+    else
+        [JAMBULNotificationsHelper scheduleNotificationNowWithtext:@"Thank You For Visiting Apollo Hospitals" action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
+    
+    [self stopAnalyticsForBeacon:beacon];
+}
+
+- (void)startAnalyticsForBeacon:(CXTYBeacon *)beacon
+{
+    if(![self.analyticsObjects.allKeys containsObject:beacon.beaconUUID])
+    {
+        NSLog(@"analytics session started");
+        CXTYBeaconAnalytics *analyticsObject = [NSEntityDescription
+                                              insertNewObjectForEntityForName:@"CXTYBeaconAnalytics"
+                                              inManagedObjectContext:[[CXTYCoreDataHelper sharedHelper] backgroundManagedObjectContext]];
+        analyticsObject.beacon_uuid = beacon.beaconUUID;
+        analyticsObject.session_start_time = [NSDate date];
+        analyticsObject.user_name = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_name"];
+        analyticsObject.user_id = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"];
+        
+        [[CXTYCoreDataHelper sharedHelper] saveContextToPersistentStore];
+
+        [self.analyticsObjects setObject:analyticsObject forKey:beacon.beaconUUID];
+        NSLog(@"analytics %@", analyticsObject);
+
+    }
+    
+}
+
+- (void)stopAnalyticsForBeacon:(CXTYBeacon *)beacon
+{
+    if([self.analyticsObjects.allKeys containsObject:beacon.beaconUUID])
+    {
+        CXTYBeaconAnalytics *analyticsObject = [self.analyticsObjects objectForKey:beacon.beaconUUID];
+        analyticsObject.session_end_time = [NSDate date];
+        analyticsObject.session_duration = [NSNumber numberWithInt:[analyticsObject.session_end_time timeIntervalSinceDate:analyticsObject.session_start_time]];
+        analyticsObject.sync_flag = [NSNumber numberWithInt:1];
+        NSLog(@"analytics session stopped %f", [analyticsObject.session_end_time timeIntervalSinceDate:analyticsObject.session_start_time]);
+        NSLog(@"session duration %@", analyticsObject.session_duration);
+        NSLog(@"analytics %@", analyticsObject);
+
+        [[CXTYCoreDataHelper sharedHelper] saveContextToPersistentStore];
+        [self.analyticsObjects removeAllObjects];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
