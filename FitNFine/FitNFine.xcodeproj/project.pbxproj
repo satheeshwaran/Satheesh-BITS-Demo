@@ -723,6 +723,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Cognizant;
 				TargetAttributes = {
+					A5ACD50819A212EF0063B090 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					A5ACD52C19A212EF0063B090 = {
 						TestTargetID = A5ACD50819A212EF0063B090;
 					};

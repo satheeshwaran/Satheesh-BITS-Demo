@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>EFC9DD6A-00A7-44E1-AED9-69A7F0E46683</string>
+	<string>EBB08683-25E9-488A-806A-1602D78B9B71</string>
 	<key>IDESourceControlProjectName</key>
 	<string>FitNFine</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>05C7CC7E-8057-4F7F-AD95-1252987C5DCD</key>
-		<string>https://code.cognizant.com/309222/fitnfine.git</string>
+		<key>72AB956D-F80C-4B96-97B3-BCD7FF7304D2</key>
+		<string>https://github.com/satheeshwaran/Satheesh-BITS-Demo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FitNFine.xcodeproj/project.xcworkspace</string>
+	<string>FitNFine/FitNFine.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>05C7CC7E-8057-4F7F-AD95-1252987C5DCD</key>
-		<string>../..</string>
+		<key>72AB956D-F80C-4B96-97B3-BCD7FF7304D2</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://code.cognizant.com/309222/fitnfine.git</string>
+	<string>https://github.com/satheeshwaran/Satheesh-BITS-Demo.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>05C7CC7E-8057-4F7F-AD95-1252987C5DCD</string>
+	<string>72AB956D-F80C-4B96-97B3-BCD7FF7304D2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>05C7CC7E-8057-4F7F-AD95-1252987C5DCD</string>
+			<string>72AB956D-F80C-4B96-97B3-BCD7FF7304D2</string>
 			<key>IDESourceControlWCCName</key>
-			<string>fitnfine working Latest</string>
+			<string>Satheesh-BITS-Demo</string>
 		</dict>
 	</array>
 </dict>

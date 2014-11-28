@@ -67,6 +67,12 @@
     return YES;
 }
 
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    [self.sdk refreshSDKSettings];
+    [self.sdk pushAnalytics];
+}
+
 - (void)SDKRefreshComplete
 {
     self.beaconManager = [[ESTBeaconManager alloc] init];
