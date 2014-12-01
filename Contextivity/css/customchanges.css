@@ -113,3 +113,21 @@ height: 500px;
 #triple li  { width:33.333%; } 
 #quad li    { width:25%; } 
 #six li     { width:8.3333%; } 
+
+#filterPanel .btn-group
+{
+float: left;
+ margin-left: 75px;
+}
+#filterPanel li
+{
+	height: 30px;
+	line-height:1.5em;
+  	border-bottom:0px solid #ccc;
+  	display:inline;
+}
+
+.allRow
+{
+	width: 100%;
+}

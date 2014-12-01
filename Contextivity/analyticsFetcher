@@ -1,0 +1,20 @@
+<?php
+include_once 'includes/db_connect.php';
+require 'includes/functions.php';
+if ($stmt = $mysqli->prepare("SELECT app_id,created_by_user_id,app_name,app_description,app_api_key,created_at
+	FROM applications
+	WHERE app_id = ?")) {
+	$beacons_array = array();
+    $stmt->bind_param('s', $app_id); // Bind "$email" to parameter.
+    $stmt->execute(); // Execute the prepared query.
+    $stmt->store_result();
+    // get variables from result.
+    $stmt->bind_result($beacon_app_id, $beacon_uuid, $beacon_name, $beacon_manufacturer,$beacon_location,$beacon_major_value,$beacon_minor_value,$beacon_broadcast_message,$beacon_exit_message,$beacon_broadcast_action);
+    while ($stmt->fetch())
+    {
+    	array_push($beacons_array,array("beacon_broadcast_action" => $beacon_broadcast_action,"beacon_exit_message" => $beacon_exit_message,"beacon_app_id" => $beacon_app_id,"beacon_uuid" => $beacon_uuid,"beacon_name" => $beacon_name,"beacon_manufacturer" => $beacon_manufacturer,"beacon_location" => $beacon_location,"beacon_major_value" => $beacon_major_value,"beacon_minor_value" => $beacon_minor_value,"beacon_broadcast_message" => $beacon_broadcast_message));
+    }
+    header('Content-Type: application/json');
+
+    echo json_encode(array("results"=>$beacons_array));
+    ?>

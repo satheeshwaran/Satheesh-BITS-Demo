@@ -210,7 +210,112 @@ if(isset($user_id))
                       </div>
                      </div>
                   <div class="tab-pane fade beaconAnalytics" id="appAnalyticsPanelContent">
-            <table class="table table-bordered table-striped responsive-utilities" style="width: auto;">
+            <div id="filterPanel">
+              <p style="width: 10%; position: relative; float: left; top: 8px;"><strong style="float: left;">Filter Data By</strong></p>
+            <div class="btn-group open">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Beacon Name<span class="caret"></span></button>
+              <ul class="dropdown-menu" id="beacon_name_list" role="menu">
+                <li class="allRow"><a href="#">All</a></li>
+                 <?php
+                  if ($stmt = $mysqli->prepare("SELECT beacon_name,beacon_uuid FROM registered_beacons
+                          WHERE beacon_app_id = ? GROUP BY(beacon_name)")) {
+                        $stmt->bind_param('s', $appID);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($beacon_name,$beacon_uuid);
+                        while ($stmt->fetch()) 
+                        {
+                          echo '<li><a href="#" id='.$beacon_uuid.'>'.$beacon_name.'</a></li>';
+                        }   
+                        }
+                  ?>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Beacon Location <span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" id="beacon_location_list">
+                <li class="allRow"><a href="#">All</a></li>
+                                <?php
+                  if ($stmt = $mysqli->prepare("SELECT beacon_location FROM registered_beacons
+                          WHERE beacon_app_id = ? GROUP BY(beacon_location)")) {
+                        $stmt->bind_param('s', $appID);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($beacon_name);
+                        while ($stmt->fetch()) 
+                        {
+                          echo '<li><a href="#">'.$beacon_name.'</a></li>';
+                        }   
+                        }
+                  ?>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Beacon Message <span class="caret"></span></button>
+              <ul class="dropdown-menu" id="beacon_message_list" role="menu">
+                <li class="allRow"><a href="#">All</a></li>
+                   <?php
+                  if ($stmt = $mysqli->prepare("SELECT beacon_broadcast_message FROM registered_beacons
+                          WHERE beacon_app_id = ? GROUP BY(beacon_broadcast_message)")) {
+                        $stmt->bind_param('s', $appID);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($beacon_name);
+                        while ($stmt->fetch()) 
+                        {
+                          echo '<li><a href="#">'.$beacon_name.'</a></li>';
+                        }   
+                        }
+                  ?>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Users <span class="caret"></span></button>
+              <ul class="dropdown-menu" id="user_name_list" role="menu">
+                <li class="allRow"><a href="#">All</a></li>
+                <?php
+                  if ($stmt = $mysqli->prepare("SELECT user_name FROM beacon_analytics      
+                       WHERE analytics_app_id = ? GROUP BY(user_name)")) {
+                        $stmt->bind_param('s', $appID);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($analytics_user_name);
+                        while ($stmt->fetch()) 
+                        {
+                          echo '<li><a href="#">'.$analytics_user_name.'</a></li>';
+                        }   
+                        }
+                  ?>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Time Spent <span class="caret"></span></button>
+              <ul class="dropdown-menu" id="beacon_session_duration" role="menu">
+                <li class="allRow"><a href="#">All</a></li>
+                <?php
+                  if ($stmt = $mysqli->prepare("SELECT session_duration FROM beacon_analytics
+                          WHERE analytics_app_id = ? GROUP BY(session_duration)")) {
+                        $stmt->bind_param('s', $appID);  // Bind "$email" to parameter.
+                        $stmt->execute();    // Execute the prepared query.
+                        $stmt->store_result();
+                        // get variables from result.
+                        $stmt->bind_result($session_time);
+                        while ($stmt->fetch()) 
+                        {
+                          echo '<li><a href="#">'.$session_time.'</a></li>';
+                        }   
+                        }
+                  ?>
+              </ul>
+            </div>
+            </div>
+<br/><br/><br>         
+<div id="analyticsDataDiv">
+   <table class="table table-bordered table-striped responsive-utilities" style="width: auto;">
                <thead>
               <tr>
                 <th>Beacon Name</th>
@@ -247,9 +352,9 @@ if(isset($user_id))
                                 <td>'.$beacon_data["beacon_name"].'</td>
                                 <td>'.$beacon_data["beacon_manufacturer"].'</td>
                                 <td>'.$analytics_beacon_uuid.'</td>
-                                <td>'.$beacon_data["beacon_location"].'</td>
                                 <td>'.$beacon_data["beacon_major_value"].'</td>
                                 <td>'.$beacon_data["beacon_minor_value"].'</td>
+                                <td>'.$beacon_data["beacon_location"].'</td>
                                 <td>'.$beacon_data["beacon_broadcast_message"].'</td>
                                 <td>'.$analytics_user_id.'</td>
                                 <td>'.$analytics_user_name.'</td>
@@ -262,6 +367,7 @@ if(isset($user_id))
               ?>
             </tbody>
           </table>
+        </div>
                  </div>
                   <div class="tab-pane fade " id="settingsPanelContent">
                     <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone...</p>
@@ -361,6 +467,30 @@ $("#addNewRogueBeaconButton").click(function (event) {
         event.preventDefault();
         document.getElementById(this.id).submit();
   });
+
+$('#beacon_session_duration li a').on('click', function () {
+    console.log("Selected Option:"+$(this).text());
+});
+
+$('#user_name_list li a').on('click', function () {
+    console.log("Selected Option:"+$(this).text());
+});
+
+$('#beacon_message_list li a').on('click', function () {
+    console.log("Selected Option:"+$(this).text());
+});
+
+$('#beacon_location_list li a').on('click', function () {
+    console.log("Selected Option:"+$(this).text());
+});
+
+$('#beacon_name_list li a').on('click', function () {
+    console.log("Selected Option:"+$(this).text());
+    $.get("analyticsFetcher.php?q=WHERE beacon_uuid = '"+ this.id + "'",function(data,status){
+    alert("Data: " + data + "\nStatus: " + status);
+    });
+});
+
 </script>
 </body>
 </html>
