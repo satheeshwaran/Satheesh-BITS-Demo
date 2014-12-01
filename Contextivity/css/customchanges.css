@@ -131,3 +131,6 @@ float: left;
 {
 	width: 100%;
 }
+.col-md-3 {
+    width: 15%;
+    }
