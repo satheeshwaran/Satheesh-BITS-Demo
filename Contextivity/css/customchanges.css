@@ -134,3 +134,11 @@ float: left;
 .col-md-3 {
     width: 15%;
     }
+
+#analyticsDataDiv
+{
+	float: left;
+    width: 90%;
+    padding-top: 20px;
+}
+}    
