@@ -3,7 +3,7 @@
 //  Fit&Fine
 //
 //  Created by Naveen on 24/08/14.
-//  Copyright (c) 2014 Cognizant Technology Solutions. All rights reserved.
+//  Copyright (c) 2014 Satheeshwaran Technology Solutions. All rights reserved.
 //
 
 #import "CustomTableCellView.h"
