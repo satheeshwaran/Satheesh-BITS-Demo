@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `JambulPushKit`
+-- Database: `SatheeshwaranPushKit`
 --
-CREATE DATABASE IF NOT EXISTS `JambulPushKit` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `JambulPushKit`;
+CREATE DATABASE IF NOT EXISTS `SatheeshwaranPushKit` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `SatheeshwaranPushKit`;
 
 -- --------------------------------------------------------
 

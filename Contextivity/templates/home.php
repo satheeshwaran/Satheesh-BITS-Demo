@@ -15,8 +15,8 @@ class CustomView extends \Slim\View
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- SmartAddon.com Verification -->
     <meta name="smartaddon-verification" content="936e8d43184bc47ef34e25e426c508fe" />
-    <meta name="keywords" content="PushKit is a Jambul component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
-    <meta name="description" content="PushKit is a Jambul component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
+    <meta name="keywords" content="PushKit is a Satheeshwaran component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
+    <meta name="description" content="PushKit is a Satheeshwaran component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
     <link rel="shortcut icon" href="favicon_16.ico"/>
     <link rel="bookmark" href="favicon_16.ico"/>
     <!-- site css -->
@@ -61,7 +61,7 @@ class CustomView extends \Slim\View
     <!--index-->
     <div class="index">
     <h2><div><p class="download-link" style="font-size: x-large;
-    ">PushKit is a Jambul component that reduces cost,time and effort in setting up infrastrcuture for Push-enabling their apps, PushKit comes with a Scalable Server Setup, Admin Console and a Mobile SDK</p></h2>
+    ">PushKit is a Satheeshwaran component that reduces cost,time and effort in setting up infrastrcuture for Push-enabling their apps, PushKit comes with a Scalable Server Setup, Admin Console and a Mobile SDK</p></h2>
     <h3><div><p class="download-link"  >  Currently supports iOS and Android. More platforms coming soon!</p></h3>
     <a href="home.php"><img src="img/slide1_illustration.png"></a>
     <p class="download-link">
@@ -76,9 +76,9 @@ class CustomView extends \Slim\View
     <a class="btn" href="documentation.html">Read the Documentation</a>&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <hr class="dashed" />
-    <div class="copyright Jambul">
+    <div class="copyright Satheeshwaran">
     <p><b>PushKit</b>&nbsp;&nbsp;&nbsp;&nbsp;</p>
-    <p>&copy; 2014 <a href="http://www.flathemes.com" target="_blank">Jambul</a>, Inc. All rights reserved.</p>
+    <p>&copy; 2014 <a href="http://www.flathemes.com" target="_blank">Satheeshwaran</a>, Inc. All rights reserved.</p>
     </div>
     </div>
     </div>

@@ -21,8 +21,8 @@ $beacon_existing_app_id = strval($_POST["existing_beacon_app_id"]);
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- SmartAddon.com Verification -->
   <meta name="smartaddon-verification" content="936e8d43184bc47ef34e25e426c508fe" />
-  <meta name="keywords" content="PushKit is a Jambul component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
-  <meta name="description" content="PushKit is a Jambul component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
+  <meta name="keywords" content="PushKit is a Satheeshwaran component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
+  <meta name="description" content="PushKit is a Satheeshwaran component that aims at enabling apps with remote notification capability very easily. Scalable server component, Admin Console and a mobile SDK">
   <link rel="shortcut icon" href="favicon_16.ico"/>
   <link rel="bookmark" href="favicon_16.ico"/>
   <!-- site css -->
@@ -213,7 +213,7 @@ $beacon_existing_app_id = strval($_POST["existing_beacon_app_id"]);
               <a class="btn" href="documentation.html">Read the Documentation</a>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <hr class="dashed" />
-            <div class="copyright Jambul">
+            <div class="copyright Satheeshwaran">
               <p><b>Contextivity</b>&nbsp;&nbsp;&nbsp;&nbsp;</p>
               <p>&copy; 2014 <a href="http://www.flathemes.com" target="_blank">Satheeshwaran</a>, Inc. All rights reserved.</p>
             </div>
