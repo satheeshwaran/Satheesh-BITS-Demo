@@ -1,6 +1,6 @@
 
 //
-//  JambulScannerClass.h
+//  ScannerClass.h
 //  Scanner
 //
 //  Created by Preethi on 28/05/13.
@@ -15,16 +15,16 @@
 #import "ZBarReaderViewController.h"
 
 //Protocol(Delegate) implementation - to notify sscanning is done
-@protocol JambulBarCodeScannerDelegate<NSObject>
+@protocol BarCodeScannerDelegate<NSObject>
 @required
 - (void)scanCompleted:(NSString *)data andScannedImage:(UIImage *)image;
 @optional
 - (void)scanDidCancel;
 @end
 
-@interface JambulBarCodeScanner : NSObject<ZBarReaderDelegate>
+@interface BarCodeScanner : NSObject<ZBarReaderDelegate>
 
-@property (nonatomic,assign) id<JambulBarCodeScannerDelegate> delegate;
+@property (nonatomic,assign) id<BarCodeScannerDelegate> delegate;
 
 /**
  On calling this method, the camera scans the barcode.

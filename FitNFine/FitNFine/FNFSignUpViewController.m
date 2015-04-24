@@ -3,16 +3,16 @@
 //  FitNFine
 //
 //  Created by Satheeshwaran on 8/18/14.
-//  Copyright (c) 2014 Cognizant. All rights reserved.
+//  Copyright (c) 2014 Satheeshwaran. All rights reserved.
 //
 
 #import "FNFSignUpViewController.h"
-#import "JambulBarCodeScanner.h"
+#import "BarCodeScanner.h"
 #import "AMSmoothAlertView.h"
 
-@interface FNFSignUpViewController ()<JambulBarCodeScannerDelegate>
+@interface FNFSignUpViewController ()<BarCodeScannerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *policyNumber;
-@property(nonatomic,strong)JambulBarCodeScanner *barCodeScanner ;
+@property(nonatomic,strong)BarCodeScanner *barCodeScanner ;
 @end
 
 @implementation FNFSignUpViewController
@@ -39,7 +39,7 @@
 }
 - (IBAction)barCodeButtonClicked:(id)sender {
     
-    self.barCodeScanner = [[JambulBarCodeScanner alloc]init];
+    self.barCodeScanner = [[BarCodeScanner alloc]init];
     self.barCodeScanner.delegate = self;
     [self.barCodeScanner scanBarCode:self];
 }

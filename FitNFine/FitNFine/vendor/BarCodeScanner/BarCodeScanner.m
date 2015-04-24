@@ -1,13 +1,13 @@
 //
-//  JambulScannerClass.m
+//  ScannerClass.m
 //  Scanner
 //
 //  Created by Preethi on 28/05/13.
 //  Copyright (c) 2013 CTS. All rights reserved.
 //
 
-#import "JambulBarCodeScanner.h"
-@interface JambulBarCodeScanner()
+#import "BarCodeScanner.h"
+@interface BarCodeScanner()
 {
     UIImageView *resultImage;
     UITextView *resultText;
@@ -15,7 +15,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *resultImage;
 @property (nonatomic, retain) IBOutlet UITextView *resultText;
 @end
-@implementation JambulBarCodeScanner
+@implementation BarCodeScanner
 @synthesize resultImage,resultText;
 
 /*!

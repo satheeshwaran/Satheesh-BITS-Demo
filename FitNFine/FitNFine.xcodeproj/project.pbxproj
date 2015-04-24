@@ -18,7 +18,7 @@
 		286996C019A9A90C00314356 /* XHLoadingNavigationItemTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 286996BE19A9A90C00314356 /* XHLoadingNavigationItemTitleView.m */; };
 		286996C219A9AF8300314356 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286996C119A9AF8300314356 /* Accounts.framework */; };
 		286996C419A9AF8D00314356 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286996C319A9AF8D00314356 /* Social.framework */; };
-		286996EA19A9B37B00314356 /* JambulBarCodeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 286996E919A9B37B00314356 /* JambulBarCodeScanner.m */; };
+		286996EA19A9B37B00314356 /* BarCodeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 286996E919A9B37B00314356 /* BarCodeScanner.m */; };
 		28AABD0A19AA09FF00EE097E /* FNFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AABD0919AA09FF00EE097E /* FNFSettingsViewController.m */; };
 		28CD835F19A791C900D09D1F /* BasicInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CD835E19A791C900D09D1F /* BasicInformationView.m */; };
 		28CD836119A791EF00D09D1F /* BasicInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CD836019A791EF00D09D1F /* BasicInformationView.xib */; };
@@ -59,7 +59,7 @@
 		A50B6B9D1A2875F7009C2776 /* CXTYRogueBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B9C1A2875F7009C2776 /* CXTYRogueBeacon.m */; };
 		A50B6BA01A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6B9F1A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.m */; };
 		A50B6BA91A28B29D009C2776 /* CXTYBeaconAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B6BA81A28B29D009C2776 /* CXTYBeaconAnalytics.m */; };
-		A50FC18E19A6136100BB41EF /* JAMBULNotificationsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A50FC18C19A6136100BB41EF /* JAMBULNotificationsHelper.m */; };
+		A50FC18E19A6136100BB41EF /* NotificationsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A50FC18C19A6136100BB41EF /* NotificationsHelper.m */; };
 		A50FC18F19A6136100BB41EF /* LocalNotifications Helper.docx in Resources */ = {isa = PBXBuildFile; fileRef = A50FC18D19A6136100BB41EF /* LocalNotifications Helper.docx */; };
 		A50FC19A19A626A400BB41EF /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A50FC19919A626A400BB41EF /* libEstimoteSDK.a */; };
 		A50FC19C19A6287500BB41EF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50FC19B19A6287500BB41EF /* SystemConfiguration.framework */; };
@@ -133,8 +133,8 @@
 		286996BE19A9A90C00314356 /* XHLoadingNavigationItemTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHLoadingNavigationItemTitleView.m; sourceTree = "<group>"; };
 		286996C119A9AF8300314356 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		286996C319A9AF8D00314356 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		286996E819A9B37B00314356 /* JambulBarCodeScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JambulBarCodeScanner.h; sourceTree = "<group>"; };
-		286996E919A9B37B00314356 /* JambulBarCodeScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JambulBarCodeScanner.m; sourceTree = "<group>"; };
+		286996E819A9B37B00314356 /* BarCodeScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCodeScanner.h; sourceTree = "<group>"; };
+		286996E919A9B37B00314356 /* BarCodeScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCodeScanner.m; sourceTree = "<group>"; };
 		28AABD0819AA09FF00EE097E /* FNFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNFSettingsViewController.h; sourceTree = "<group>"; };
 		28AABD0919AA09FF00EE097E /* FNFSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNFSettingsViewController.m; sourceTree = "<group>"; };
 		28CD835D19A791C900D09D1F /* BasicInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInformationView.h; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 		A50B6B9F1A289F9F009C2776 /* CXTYBeaconAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYBeaconAnalyticsHelper.m; sourceTree = "<group>"; };
 		A50B6BA71A28B29D009C2776 /* CXTYBeaconAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTYBeaconAnalytics.h; sourceTree = "<group>"; };
 		A50B6BA81A28B29D009C2776 /* CXTYBeaconAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTYBeaconAnalytics.m; sourceTree = "<group>"; };
-		A50FC18B19A6136100BB41EF /* JAMBULNotificationsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAMBULNotificationsHelper.h; sourceTree = "<group>"; };
-		A50FC18C19A6136100BB41EF /* JAMBULNotificationsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAMBULNotificationsHelper.m; sourceTree = "<group>"; };
+		A50FC18B19A6136100BB41EF /* NotificationsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsHelper.h; sourceTree = "<group>"; };
+		A50FC18C19A6136100BB41EF /* NotificationsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsHelper.m; sourceTree = "<group>"; };
 		A50FC18D19A6136100BB41EF /* LocalNotifications Helper.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LocalNotifications Helper.docx"; sourceTree = "<group>"; };
 		A50FC19219A626A400BB41EF /* ESTBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeacon.h; sourceTree = "<group>"; };
 		A50FC19319A626A400BB41EF /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconDefinitions.h; sourceTree = "<group>"; };
@@ -405,8 +405,8 @@
 		A50777C419A4E31000C44619 /* BarCodeScanner */ = {
 			isa = PBXGroup;
 			children = (
-				286996E819A9B37B00314356 /* JambulBarCodeScanner.h */,
-				286996E919A9B37B00314356 /* JambulBarCodeScanner.m */,
+				286996E819A9B37B00314356 /* BarCodeScanner.h */,
+				286996E919A9B37B00314356 /* BarCodeScanner.m */,
 				A50777C719A4E31000C44619 /* libzbar.a */,
 				A50777C819A4E31000C44619 /* ZBar */,
 			);
@@ -470,8 +470,8 @@
 		A50FC18A19A6136100BB41EF /* Local Notification Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A50FC18B19A6136100BB41EF /* JAMBULNotificationsHelper.h */,
-				A50FC18C19A6136100BB41EF /* JAMBULNotificationsHelper.m */,
+				A50FC18B19A6136100BB41EF /* NotificationsHelper.h */,
+				A50FC18C19A6136100BB41EF /* NotificationsHelper.m */,
 				A50FC18D19A6136100BB41EF /* LocalNotifications Helper.docx */,
 			);
 			path = "Local Notification Helpers";
@@ -810,7 +810,7 @@
 				01B7762219A8935600B12B6D /* ClaimHistoryCell.m in Sources */,
 				A5ACD51919A212EF0063B090 /* main.m in Sources */,
 				A53CE55B19A8C745000E20C9 /* FNFHospitalCheckInViewController.m in Sources */,
-				286996EA19A9B37B00314356 /* JambulBarCodeScanner.m in Sources */,
+				286996EA19A9B37B00314356 /* BarCodeScanner.m in Sources */,
 				A50B6B8A1A284B5F009C2776 /* CXTYDataModel.xcdatamodeld in Sources */,
 				A534ED7219A749FC0033EB61 /* FNFPolicyDetailsViewController.m in Sources */,
 				A53CE55F19A8D1E3000E20C9 /* PulsingHaloLayer.m in Sources */,
@@ -839,7 +839,7 @@
 				28AABD0A19AA09FF00EE097E /* FNFSettingsViewController.m in Sources */,
 				A5314D5919A8927D00FAB633 /* FNFInsuranceBackendHelper.m in Sources */,
 				2808E2EF19A8A6FF00D724AC /* UIScrollView+APParallaxHeader.m in Sources */,
-				A50FC18E19A6136100BB41EF /* JAMBULNotificationsHelper.m in Sources */,
+				A50FC18E19A6136100BB41EF /* NotificationsHelper.m in Sources */,
 				A5ACD54C19A213570063B090 /* RECommonFunctions.m in Sources */,
 				A5ACD54E19A213570063B090 /* UIViewController+RESideMenu.m in Sources */,
 			);
@@ -915,8 +915,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Cognizant Technology Solutions India Pvt Ltd/";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Cognizant Technology Solutions India Pvt Ltd/";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -956,8 +956,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Cognizant Technology Solutions India Pvt Ltd/";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Cognizant Technology Solutions India Pvt Ltd/";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

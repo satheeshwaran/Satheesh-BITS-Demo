@@ -3,7 +3,7 @@
 //  FitNFine
 //
 //  Created by Naveen on 23/08/14.
-//  Copyright (c) 2014 Cognizant. All rights reserved.
+//  Copyright (c) 2014 Satheeshwaran. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -3,7 +3,7 @@
 //  FitNFine
 //
 //  Created by Satheeshwaran on 11/28/14.
-//  Copyright (c) 2014 Cognizant. All rights reserved.
+//  Copyright (c) 2014 Satheeshwaran. All rights reserved.
 //
 
 #import "CXTYRogueBeacon.h"

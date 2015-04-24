@@ -3,11 +3,11 @@
 //  FitNFine
 //
 //  Created by Satheeshwaran on 8/18/14.
-//  Copyright (c) 2014 Cognizant. All rights reserved.
+//  Copyright (c) 2014 Satheeshwaran. All rights reserved.
 //
 
 #import "FNFAppDelegate.h"
-#import "JAMBULNotificationsHelper.h"
+#import "NotificationsHelper.h"
 
 #import "ESTBeaconManager.h"
 #import <Parse/Parse.h>
@@ -117,10 +117,10 @@
     CXTYBeacon *beacon = [helper getExistingRegBeaconWithUUID:region.proximityUUID.UUIDString];
     
     if(beacon)
-    [JAMBULNotificationsHelper scheduleNotificationNowWithtext:beacon.beaconWelcomeMessage action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
+    [NotificationsHelper scheduleNotificationNowWithtext:beacon.beaconWelcomeMessage action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
 
     else
-    [JAMBULNotificationsHelper scheduleNotificationNowWithtext:@"Welcome To Apollo Hospitals!!" action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
+    [NotificationsHelper scheduleNotificationNowWithtext:@"Welcome To Apollo Hospitals!!" action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
     
     [self startAnalyticsForBeacon:beacon];
 }
@@ -131,10 +131,10 @@
     CXTYBeacon *beacon = [helper getExistingRegBeaconWithUUID:region.proximityUUID.UUIDString];
     
     if(beacon)
-        [JAMBULNotificationsHelper scheduleNotificationNowWithtext:beacon.beaconExitMessage action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
+        [NotificationsHelper scheduleNotificationNowWithtext:beacon.beaconExitMessage action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
     
     else
-        [JAMBULNotificationsHelper scheduleNotificationNowWithtext:@"Thank You For Visiting Apollo Hospitals" action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
+        [NotificationsHelper scheduleNotificationNowWithtext:@"Thank You For Visiting Apollo Hospitals" action:beacon.beaconAction sound:nil launchImage:nil andInfo:nil];
     
     [self stopAnalyticsForBeacon:beacon];
 }

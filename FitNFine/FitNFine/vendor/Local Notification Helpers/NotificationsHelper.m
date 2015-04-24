@@ -1,14 +1,14 @@
 //
 //  NotificationsHelper.m
-//  JAMBUL
+//  
 //
 //  Created by Satheeshwaran on 5/2/13.
-//  Copyright (c) 2013 Cognizant. All rights reserved.
+//  Copyright (c) 2013 Satheeshwaran. All rights reserved.
 //
 
-#import "JAMBULNotificationsHelper.h"
+#import "NotificationsHelper.h"
 
-@implementation JAMBULNotificationsHelper
+@implementation NotificationsHelper
 
 
 /**

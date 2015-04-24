@@ -3,7 +3,7 @@
 //  FitNFine
 //
 //  Created by Satheeshwaran on 8/23/14.
-//  Copyright (c) 2014 Cognizant. All rights reserved.
+//  Copyright (c) 2014 Satheeshwaran. All rights reserved.
 //
 
 #import "FNFHospitalCheckInViewController.h"
@@ -86,7 +86,7 @@
     int major = [[self.policyDictionary objectForKey:@"policyMajor"] integerValue];
     int minor = [[[[[FNFInsuranceBackendHelper sharedHelper]getDependents] objectAtIndex:[self.dependentsPicker selectedRowInComponent:0]] objectForKey:@"dependentMinor"] integerValue];
     
-    appDelegate.beaconCheckInHelper = [[FNFBeaconCheckinAdvertiser alloc]initWithProximityID:@"com.cognizantenterprisemobility.fitnfine" andIdentifier:UUID majorValue:major andMinorValue:minor];
+    appDelegate.beaconCheckInHelper = [[FNFBeaconCheckinAdvertiser alloc]initWithProximityID:@"com.Satheeshwaranenterprisemobility.fitnfine" andIdentifier:UUID majorValue:major andMinorValue:minor];
     
     [appDelegate.beaconCheckInHelper startCheckInProcess];
     

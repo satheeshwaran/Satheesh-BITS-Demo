@@ -1,14 +1,14 @@
 //
 //  NotificationsHelper.h
-//  JAMBUL
+//  
 //
 //  Created by Satheeshwaran on 5/2/13.
-//  Copyright (c) 2013 Cognizant. All rights reserved.
+//  Copyright (c) 2013 Satheeshwaran. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface JAMBULNotificationsHelper : NSObject
+@interface NotificationsHelper : NSObject
 
 /*!
  Description
